@@ -9,6 +9,7 @@ public class FallDeath : DeathCharacter
             ScreenDimming();
             TimeDilation();
             ShowLoseText();
+            DeathStopTime();
         }
     }
 }

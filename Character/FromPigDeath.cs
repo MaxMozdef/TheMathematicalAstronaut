@@ -10,6 +10,7 @@ public class FromPigDeath : DeathCharacter
             ScreenDimming();
             TimeDilation();
             ShowLoseText();
+            DeathStopTime();
         }
     }
 }

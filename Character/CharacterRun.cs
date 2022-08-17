@@ -7,8 +7,10 @@ public class CharacterRun : MonoBehaviour
     [SerializeField] Rigidbody characterRigitbody;
     [SerializeField] float characterSpeed, characterSpeedLefrRight;
     [SerializeField] TextMeshProUGUI tapToPlayText;
+    [SerializeField] Animator runAnimation;
+
     public static UnityAction m_Action;
-    bool permanentRun;
+    public static bool permanentRun;
 
     void Start()
     {
@@ -21,22 +23,32 @@ public class CharacterRun : MonoBehaviour
 
     void MoveForward()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (DeathCharacter.isCharacterAlive == true)
         {
-            HaidStartText();
-            Time.timeScale = 1;
-            permanentRun = true;
+            if (Input.GetMouseButtonDown(0))
+            {
+                HaidStartText();
+                Time.timeScale = 1;
+                permanentRun = true;
+            }
+
+            if (permanentRun == true)
+                characterRigitbody.velocity = transform.forward * characterSpeed;
         }
-        if (permanentRun == true)
-            characterRigitbody.velocity = transform.forward * characterSpeed;
+        else
+        {
+            characterRigitbody.isKinematic = true;
+            runAnimation.enabled = false;
+        }
+        
     }
 
     void MoveRightLeft()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && DeathCharacter.isCharacterAlive == true)
         {
             Vector3 leftRight = new Vector3(Input.GetAxis("Mouse X") * characterSpeedLefrRight * Time.deltaTime, 0, 0);
-            transform.Translate(leftRight * characterSpeedLefrRight);
+            transform.Translate(leftRight * characterSpeedLefrRight * Time.deltaTime);
         }
     }
 

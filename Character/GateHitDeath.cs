@@ -9,6 +9,7 @@ public class GateHitDeath : DeathCharacter
             ScreenDimming();
             TimeDilation();
             ShowLoseText();
+            DeathStopTime();
         }
     }
 }
