@@ -8,7 +8,9 @@ public class HintRightLeftMove : HintsLevelOne
     [SerializeField] Collider triggerHintRighyLeftMove;
     [SerializeField] TextMeshProUGUI hintMoveRightLeftText;
 
-    private void Start() => hintsAction += TapToSkipHint;
+    private void OnEnable() => hintsAction += TapToSkipHint;
+
+    private void OnDisable() => hintsAction -= TapToSkipHint;
 
     private void OnTriggerEnter(Collider triggerHintRighyLeftMove)
     {

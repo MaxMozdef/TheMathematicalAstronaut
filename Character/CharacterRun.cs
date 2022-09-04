@@ -12,10 +12,20 @@ public class CharacterRun : MonoBehaviour
     public static UnityAction m_Action;
     public static bool permanentRun;
 
-    void Start()
+    private void OnEnable()
     {
         m_Action += MoveForward;
         m_Action += MoveRightLeft;
+    }
+
+    private void OnDisable()
+    {
+        m_Action -= MoveForward;
+        m_Action -= MoveRightLeft;
+    }
+
+    void Start()
+    {
         Time.timeScale = 0;
     }
 

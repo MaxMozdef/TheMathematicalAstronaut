@@ -15,8 +15,6 @@ public class WhishCharacterNumber : MonoBehaviour
         if (other.gameObject.tag == "Astronaut")
         {
             characterNumber += valueChangeNumbers;
-            print("Maksiq you done this!");
-            print(characterNumber);
         }
     }
 }

@@ -1,17 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class HintsLevelOne : MonoBehaviour
 {
     public static UnityAction hintsAction;
 
-    private void Update()
-    {
-        hintsAction();
-    }
+    private void Update() => hintsAction();
 
     protected void TriggerActivate(Collider other, TextMeshProUGUI hintText)
     {

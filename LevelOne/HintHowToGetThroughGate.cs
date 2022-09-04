@@ -5,7 +5,9 @@ public class HintHowToGetThroughGate : HintsLevelOne
     [SerializeField] TextMeshProUGUI hintHowToGetThroughGateText;
     [SerializeField] Collider hintHowToGetThroughGate;
 
-    private void Start() => hintsAction += TapToSkipHint;
+    private void OnEnable() => hintsAction += TapToSkipHint;
+
+    private void OnDisable() => hintsAction -= TapToSkipHint;
 
     private void OnTriggerEnter(Collider hintHowToGetThroughGate)
     {

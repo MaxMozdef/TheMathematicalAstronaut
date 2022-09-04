@@ -1,6 +1,8 @@
 public class FallDeath : DeathCharacter
 {
-    private void Start() => CharacterRun.m_Action += DeathFall;
+    private void OnEnable() => CharacterRun.m_Action += DeathFall;
+
+    private void OnDisable() => CharacterRun.m_Action -= DeathFall;
 
     void DeathFall()
     {
@@ -10,6 +12,7 @@ public class FallDeath : DeathCharacter
             TimeDilation();
             ShowLoseText();
             DeathStopTime();
+            ShowRetryButtonOnDeath();
         }
     }
 }

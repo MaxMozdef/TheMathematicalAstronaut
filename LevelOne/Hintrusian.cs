@@ -8,7 +8,9 @@ public class Hintrusian : HintsLevelOne
     [SerializeField] TextMeshProUGUI hintrusianText;
     [SerializeField] Collider triggerHintrusian;
 
-    private void Start() => hintsAction += TapToSkipHint;
+    private void OnEnable() => hintsAction += TapToSkipHint;
+
+    private void OnDisable() => hintsAction -= TapToSkipHint;
 
     private void OnTriggerEnter(Collider triggerHintrusian)
     {

@@ -1,14 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class HintFall : HintsLevelOne
 {
     [SerializeField] Collider triggerHintFallDeath;
     [SerializeField] TextMeshProUGUI hintFallDeathText;
 
-    private void Start() => hintsAction += TapToSkipHint;
+    private void OnEnable() => hintsAction += TapToSkipHint;
+
+    private void OnDisable() => hintsAction -= TapToSkipHint;
 
     private void OnTriggerEnter(Collider triggerHintFallDeath)
     {

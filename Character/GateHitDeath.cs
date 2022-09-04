@@ -10,6 +10,7 @@ public class GateHitDeath : DeathCharacter
             TimeDilation();
             ShowLoseText();
             DeathStopTime();
+            ShowRetryButtonOnDeath();
         }
     }
 }

@@ -6,7 +6,9 @@ public class HintGateHit : HintsLevelOne
     [SerializeField] TextMeshProUGUI hintGateHitText;
     [SerializeField] Collider hintGateHit;
 
-    private void Start() => hintsAction += TapToSkipHint;
+    private void OnEnable() => hintsAction += TapToSkipHint;
+
+    private void OnDisable() => hintsAction -= TapToSkipHint;
 
     private void OnTriggerEnter(Collider hintGateHit)
     {

@@ -5,9 +5,12 @@ public class AnimationRun : MonoBehaviour
     [SerializeField] Animator runAnimator;
     float startPosition, zPositionUpdate;
 
+    private void OnEnable() => CharacterRun.m_Action += RunAnimation;
+
+    private void OnDisable() => CharacterRun.m_Action -= RunAnimation;
+
     private void Start()
     {
-        CharacterRun.m_Action += RunAnimation;
         startPosition = gameObject.transform.position.z;
     }
 
@@ -20,5 +23,4 @@ public class AnimationRun : MonoBehaviour
         else
             runAnimator.SetBool("isRunning", false);
     }
-
 }

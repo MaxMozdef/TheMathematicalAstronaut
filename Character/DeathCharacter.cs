@@ -1,31 +1,24 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DeathCharacter : MonoBehaviour
 {
     [SerializeField] CharacterRun characterRun;
     [SerializeField] protected Light directionalLight;
-    [SerializeField] protected TextMeshProUGUI loseText; 
+    [SerializeField] protected TextMeshProUGUI loseText;
+    [SerializeField] Button retryButton;
 
     float rotationX, timeDilationValue, rotationValue;
     bool useFixedUpdate;
 
     public static bool isCharacterAlive;
 
-
-
     private void Start()
     {
         isCharacterAlive = true;
         timeDilationValue = Time.timeScale;
         rotationX = directionalLight.transform.rotation.x;
-    }
-
-    private void Update()
-    {
-        print(isCharacterAlive);
-        print(Time.timeScale);
-        print($"its permanent run bool{CharacterRun.permanentRun}");
     }
 
     protected void ScreenDimming()
@@ -62,5 +55,11 @@ public class DeathCharacter : MonoBehaviour
             Time.timeScale = 0;
             CharacterRun.permanentRun = false;
         }
+    }
+
+    protected void ShowRetryButtonOnDeath()
+    {
+        if (isCharacterAlive == false)
+            retryButton.gameObject.SetActive(true);
     }
 }
