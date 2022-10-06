@@ -17,6 +17,8 @@ public class CheckPlayerNumber : DeathCharacter
             ScreenDimming();
             TimeDilation();
             ShowLoseText();
+            DeathStopTime();
+            ShowRetryButtonOnDeath();
         }
     }
 }
